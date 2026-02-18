@@ -13,16 +13,16 @@
   position: relative;
   display: flex;
 
-  &__inner {
-  height: 60px;
-  width: 160px;
-  background-color: white;
-  margin: 20px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  margin-left: auto;
-  }
+    &__inner {
+      height: 60px;
+      width: 160px;
+      background-color: white;
+      margin: 20px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      margin-left: auto;
+    }
 
   .header__box {
     margin-right: 10px;
@@ -62,12 +62,12 @@
   width: 400px;
   display: flex;
 
-  .sidebar {
-    height: 250px;
-    width: 150px;
-    background-color: #80bfa8;
-    display: flex;
-  }
+.sidebar {
+  height: 250px;
+  width: 150px;
+  background-color: #80bfa8;
+  display: flex;
+}
 
   .main {
     height: 250px;
