@@ -1,8 +1,25 @@
 $white: #fff;
 $classNames: 'purple', 'orange', 'blue';
-$buttonColor: #a9004b, #ff863f, #0000ff;
+$buttonColor: (
+  red: #a9004b,
+  orange: #ff863f,
+  blue: #0000ff
+);
 
 $navy: #141f40;
 $green: #80bfa8;
 $red: #8c2727;
 $brown: #d98d30;
+
+$header-size: 40px;
+$width: 400px;
+$height: 100px;
+$inner-width: 140px;
+$inner-margin: 5px;
+$margin: 10px;
+
+$header-margins: (
+  red: (10px, 5px),
+  orange: (10px, 5px),
+  blue: (10px, 5px)
+);

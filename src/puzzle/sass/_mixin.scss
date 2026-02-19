@@ -1,0 +1,12 @@
+@use 'variable';
+
+@mixin header-box($color, $margins) {
+  background-color: $color;
+  width: variable.$header-size;
+  height: variable.$header-size;
+
+  margin-top: nth($margins, 1);
+  margin-bottom: nth($margins, 1);
+  margin-left: nth($margins, 2);
+  margin-right: nth($margins, 2);
+}
