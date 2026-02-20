@@ -1,44 +1,41 @@
-@use 'variable';
-@use 'mixin';
+@use "variable";
+@use "mixin";
+@use "sass:map";
 
-.warpper {
+.wrapper {
   height: 100%;
   width: variable.$width;
 }
 
 .header {
-  height: variable.$height;
-  width: variable.$width;
-  background-color: #141f40;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  position: relative;
+  background-color: variable.$navy;
   display: flex;
 
-    &__inner {
-      height: 60px;
-      width: 160px;
-      background-color: variable.$white;
-      margin: 20px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      margin-left: auto;
-    }
+  &__inner {
+    height: 60px;
+    width: 160px;
+    background-color: variable.$white;
+    margin: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+    margin-left: auto;
+  }
 
   .header__box {
     margin-right: variable.$margin;
     width: variable.$header-size;
     height: variable.$header-size;
-    margin-top: variable.$margin;
     margin-bottom: variable.$margin;
 
-    @each $name, $margins in variable.$header-margins {
+    @each $name in variable.$classNames {
+      $index: index(variable.$classNames, $name);
+
       &--#{$name} {
         @include mixin.header-box(
-          map-get(variable.$buttonColor, $name),
-          $margins
+          nth(variable.$buttonColor, $index),
+          nth(variable.$header-margins, $index),
+          variable.$header-size
         );
       }
     }
@@ -50,11 +47,11 @@
   width: variable.$width;
   display: flex;
 
-.sidebar {
-  width: 150px;
-  background-color: variable.$green;
-  display: flex;
-}
+  .sidebar {
+    width: 150px;
+    background-color: variable.$green;
+    display: flex;
+  }
 
   .main {
     width: 250px;
@@ -74,13 +71,16 @@
       margin-top: 10px;
       display: flex;
       align-items: center;
+      justify-content: center;
 
-      @each $name, $color in variable.$buttonColor {
-        &--#{$name} {
-          background-color: $color;
-          width: variable.$inner-width;
-          height: variable.$header-size;
-          margin: variable.$inner-margin;
+      @each $color in variable.$classNames {
+        $index: index(variable.$classNames, $color);
+        &--#{$color} {
+          @include mixin.header-box(
+            nth(variable.$buttonColor, $index),
+            nth(variable.$header-margins, $index),
+            variable.$inner-width
+          );
         }
       }
     }
