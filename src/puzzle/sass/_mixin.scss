@@ -1,8 +1,8 @@
 @use "variable";
 
-@mixin header-box($color, $margins, $size) {
+@mixin inner-box($color, $margins, $size) {
   background-color: $color;
   width: $size;
-  height: variable.$header-size;
+  height: 40px;
   margin: $margins;
 }

@@ -1,10 +1,9 @@
 @use "variable";
 @use "mixin";
-@use "sass:map";
 
 .wrapper {
   height: 100%;
-  width: variable.$width;
+  width: 400px;
 }
 
 .header {
@@ -23,19 +22,16 @@
   }
 
   .header__box {
-    margin-right: variable.$margin;
-    width: variable.$header-size;
-    height: variable.$header-size;
-    margin-bottom: variable.$margin;
+    margin-right: 10px;
+    margin-bottom: 10px;
 
     @each $name in variable.$classNames {
       $index: index(variable.$classNames, $name);
-
-      &--#{$name} {
-        @include mixin.header-box(
+      &__#{$name} {
+        @include mixin.inner-box(
           nth(variable.$buttonColor, $index),
-          nth(variable.$header-margins, $index),
-          variable.$header-size
+          (10px, 5px),
+          40px
         );
       }
     }
@@ -44,30 +40,27 @@
 
 .content {
   height: 250px;
-  width: variable.$width;
+  width: 400px;
   display: flex;
 
   .sidebar {
     width: 150px;
     background-color: variable.$green;
-    display: flex;
   }
 
   .main {
     width: 250px;
     background-color: variable.$red;
-    list-style: none;
-    position: relative;
 
     .main__box:first-child {
-      margin-top: variable.$header-size;
+      margin-top: 40px;
     }
 
     &__box {
       height: 50px;
       width: 150px;
       background-color: variable.$white;
-      margin-left: variable.$header-size;
+      margin-left: 40px;
       margin-top: 10px;
       display: flex;
       align-items: center;
@@ -75,11 +68,11 @@
 
       @each $color in variable.$classNames {
         $index: index(variable.$classNames, $color);
-        &--#{$color} {
-          @include mixin.header-box(
+        &__#{$color} {
+          @include mixin.inner-box(
             nth(variable.$buttonColor, $index),
-            nth(variable.$header-margins, $index),
-            variable.$inner-width
+            (10px, 5px),
+            140px
           );
         }
       }
@@ -88,7 +81,7 @@
 }
 
 .footer {
-  height: variable.$height;
-  width: variable.$width;
+  height: 100px;
+  width: 400px;
   background-color: variable.$brown;
 }
