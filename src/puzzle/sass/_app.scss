@@ -1,0 +1,87 @@
+@use "variable";
+@use "mixin";
+
+.wrapper {
+  height: 100%;
+  width: 400px;
+}
+
+.header {
+  background-color: variable.$navy;
+  display: flex;
+
+  &__inner {
+    height: 60px;
+    width: 160px;
+    background-color: variable.$white;
+    margin: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+    margin-left: auto;
+  }
+
+  .header__box {
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    @each $name in variable.$classNames {
+      $index: index(variable.$classNames, $name);
+      &__#{$name} {
+        @include mixin.inner-box(
+          nth(variable.$buttonColor, $index),
+          (10px, 5px),
+          40px
+        );
+      }
+    }
+  }
+}
+
+.content {
+  height: 250px;
+  width: 400px;
+  display: flex;
+
+  .sidebar {
+    width: 150px;
+    background-color: variable.$green;
+  }
+
+  .main {
+    width: 250px;
+    background-color: variable.$red;
+
+    .main__box:first-child {
+      margin-top: 40px;
+    }
+
+    &__box {
+      height: 50px;
+      width: 150px;
+      background-color: variable.$white;
+      margin-left: 40px;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @each $color in variable.$classNames {
+        $index: index(variable.$classNames, $color);
+        &__#{$color} {
+          @include mixin.inner-box(
+            nth(variable.$buttonColor, $index),
+            (10px, 5px),
+            140px
+          );
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  height: 100px;
+  width: 400px;
+  background-color: variable.$brown;
+}

@@ -1,11 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sass puzzle</title>
-</head>
-<body>
-  <script type="module" src="./js/index.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sass puzzle</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__inner">
+          <div class="header__box header__box__purple"></div>
+          <div class="header__box header__box__orange"></div>
+          <div class="header__box header__box__blue"></div>
+        </div>
+      </header>
+      <main class="content">
+        <aside class="sidebar"></aside>
+        <section class="main">
+          <div class="main__box">
+            <div class="main__box__purple"></div>
+          </div>
+          <div class="main__box">
+            <div class="main__box__orange"></div>
+          </div>
+          <div class="main__box">
+            <div class="main__box__blue"></div>
+          </div>
+        </section>
+      </main>
+      <div class="footer"></div>
+    </div>
+    <script type="module" src="./js/index.js"></script>
+  </body>
 </html>

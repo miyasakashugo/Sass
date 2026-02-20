@@ -1,0 +1,8 @@
+@use "variable";
+
+@mixin inner-box($color, $margins, $size) {
+  background-color: $color;
+  width: $size;
+  height: 40px;
+  margin: $margins;
+}
